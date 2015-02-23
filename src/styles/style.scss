@@ -1,0 +1,79 @@
+// Mixins
+
+@mixin box ($ancho, $tipo, $color) {
+	position: relative;
+	transition: -webkit-transform 2s linear;
+	transform-style: preserve-3d;
+	@if $tipo == cuad { // Si es un cuadrado
+		.right, .left, .front, .back, .bottom, .top{
+			height: $ancho;
+			width: $ancho;
+		}
+	}
+	@else{ // Si es un rectángulo
+		.right, .left, .front, .back, {
+			height: $ancho * 2;
+			width: $ancho;
+		}
+		.bottom, .top{ // Las caras de arriba y abajo son cuadrados
+			height: $ancho;
+			width: $ancho;			
+		}
+	}
+	.cara{
+		display: block;
+		background-color: $color;
+		border: 1px solid red;
+		opacity: .5;
+		position: absolute;
+	}
+	.right{ transform: rotateY(90deg) translateZ($ancho / 2); }
+	.left{ transform: rotateY(-90deg) translateZ($ancho / 2); }
+	.front{ transform: translateZ($ancho / 2); }
+	.back{ transform: translateZ(-($ancho / 2)); }
+	.top{ transform: rotateX(-90deg) translateZ(-($ancho / 2)); }
+	@if $tipo == cuad { // Si es un cuadrado
+		.bottom{ transform: rotateX(-90deg) translateZ($ancho / 2); }
+	}
+	@else{
+		.bottom{ transform: rotateX(-90deg) translateZ($ancho * 1.5); }
+	}
+
+}
+
+// Vars
+
+// Selectors
+
+.escena{
+	-webkit-perspective: 800px;
+	-webkit-perspective-origin: 50% 200px;
+	width: 100%;
+	margin: 0 200px;
+}
+
+.cuerpo{
+	margin: 0;
+	width: 200px;
+	height: 400px;
+	@include box(200px, "rect", #0000ff);
+}
+
+.cabeza{
+	margin: 0 0 0 50px;
+	width: 100px;
+	height: 100px;
+	@include box(100px, "cuad", #0000ff);
+}
+
+.ojos{
+	margin: 5px 0;
+	.izquierdo, .derecho{
+		border-radius: 50px;
+		border: solid 3px #000;
+		width: 20px;
+		height: 20px;
+		margin: 5px;
+		display: inline-block;
+	}
+}

@@ -1,0 +1,76 @@
+.escena {
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 200px;
+  width: 100%;
+  margin: 0 200px; }
+
+.cuerpo {
+  margin: 0;
+  width: 200px;
+  height: 400px;
+  position: relative;
+  transition: -webkit-transform 2s linear;
+  transform-style: preserve-3d; }
+  .cuerpo .right, .cuerpo .left, .cuerpo .front, .cuerpo .back {
+    height: 400px;
+    width: 200px; }
+  .cuerpo .bottom, .cuerpo .top {
+    height: 200px;
+    width: 200px; }
+  .cuerpo .cara {
+    display: block;
+    background-color: #0000ff;
+    border: 1px solid red;
+    opacity: .5;
+    position: absolute; }
+  .cuerpo .right {
+    transform: rotateY(90deg) translateZ(100px); }
+  .cuerpo .left {
+    transform: rotateY(-90deg) translateZ(100px); }
+  .cuerpo .front {
+    transform: translateZ(100px); }
+  .cuerpo .back {
+    transform: translateZ(-100px); }
+  .cuerpo .top {
+    transform: rotateX(-90deg) translateZ(-100px); }
+  .cuerpo .bottom {
+    transform: rotateX(-90deg) translateZ(300px); }
+
+.cabeza {
+  margin: 0 0 0 50px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transition: -webkit-transform 2s linear;
+  transform-style: preserve-3d; }
+  .cabeza .right, .cabeza .left, .cabeza .front, .cabeza .back, .cabeza .bottom, .cabeza .top {
+    height: 100px;
+    width: 100px; }
+  .cabeza .cara {
+    display: block;
+    background-color: #0000ff;
+    border: 1px solid red;
+    opacity: .5;
+    position: absolute; }
+  .cabeza .right {
+    transform: rotateY(90deg) translateZ(50px); }
+  .cabeza .left {
+    transform: rotateY(-90deg) translateZ(50px); }
+  .cabeza .front {
+    transform: translateZ(50px); }
+  .cabeza .back {
+    transform: translateZ(-50px); }
+  .cabeza .top {
+    transform: rotateX(-90deg) translateZ(-50px); }
+  .cabeza .bottom {
+    transform: rotateX(-90deg) translateZ(50px); }
+
+.ojos {
+  margin: 5px 0; }
+  .ojos .izquierdo, .ojos .derecho {
+    border-radius: 50px;
+    border: solid 3px #000;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    display: inline-block; }

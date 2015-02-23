@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Dynamics Papercrafts</title>
+	<link rel="stylesheet" type="text/css" href="dist/styles/style.css">
+</head>
+<body>
+	<div class="escena">
+		<div class="cuerpo">
+			<div class="cabeza">
+				<div class="cara front">
+					<div class="ojos">
+						<div class="derecho"></div>
+						<div class="izquierdo"></div>
+					</div> 
+				</div>	
+				<div class="cara left"></div>
+				<div class="cara right"></div>
+				<div class="cara back"></div>
+				<div class="cara top"></div>
+				<div class="cara bottom"></div>
+			</div>
+			<div class="cara front"></div>	
+			<div class="cara left"></div>
+			<div class="cara right"></div>
+			<div class="cara back"></div>
+			<div class="cara top"></div>
+			<div class="cara bottom"></div>
+		</div>
+
+	</div>
+	<select name="colores">
+	<option value="18A8F0">Celeste</option>
+	<option value="F04848">Rojo</option>
+	<option value="F0F078">Amarillo</option>
+	<option value="F09018">Naranja</option>
+	</select>
+
+	<script type="text/javascript">
+		var xAngle = 0, yAngle = 0;
+		document.addEventListener('keydown', function(e){
+			switch(e.keyCode){
+				case 37: // left
+			      yAngle -= 90;
+			      break;
+
+			    case 38: // up
+			      xAngle += 90;
+			      break;
+
+			    case 39: // right
+			      yAngle += 90;
+			      break;
+
+			    case 40: // down
+			      xAngle -= 90;
+			      break;
+			};
+
+		$('.cuerpo').css('transform', "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)");
+		}, false);
+		var main = function(){
+			$('select').change(function(){
+				color = '#'+$(this).children(":selected").val();
+				$('.cara').css('background-color', color);
+			});
+		}
+		window.onload = main;
+
+	</script>
+	<script src="js/jquery.min.js"></script>
+</body>
+</html>
