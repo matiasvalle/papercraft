@@ -1,6 +1,6 @@
 // Mixins
 
-@mixin box ($ancho, $tipo, $color) {
+@mixin box ($ancho, $alto, $tipo, $color) {
 	position: relative;
 	transition: -webkit-transform 2s linear;
 	transform-style: preserve-3d;
@@ -12,7 +12,7 @@
 	}
 	@else{ // Si es un rectángulo
 		.right, .left, .front, .back, {
-			height: $ancho * 2;
+			height: $alto;
 			width: $ancho;
 		}
 		.bottom, .top{ // Las caras de arriba y abajo son cuadrados
@@ -36,7 +36,7 @@
 		.bottom{ transform: rotateX(-90deg) translateZ($ancho / 2); }
 	}
 	@else{
-		.bottom{ transform: rotateX(-90deg) translateZ($ancho * 1.5); }
+		.bottom{ transform: rotateX(-90deg) translateZ($alto - ($ancho / 2)); } //Rota sobre un eje central, entonces queda desplazado la mitad de su anchura
 	}
 
 }
@@ -56,14 +56,28 @@
 	margin: 0;
 	width: 200px;
 	height: 400px;
-	@include box(200px, "rect", #0000ff);
+	@include box(200px, 300px, "rect", #0000ff);
 }
 
 .cabeza{
 	margin: 0 0 0 50px;
 	width: 100px;
 	height: 100px;
-	@include box(100px, "cuad", #0000ff);
+	@include box(100px, 100px, "cuad", #0000ff);
+}
+
+.pierna1, .pierna2{
+	width: 100px;
+	height: 200px;
+	@include box(50px, 150px, "rect", #0000ff);
+}
+
+.pierna1{
+	transform: translateY(300px) translateX(25px);
+}
+
+.pierna2{
+	transform: translateY(100px) translateX(100px);
 }
 
 .ojos{

@@ -12,7 +12,7 @@
   transition: -webkit-transform 2s linear;
   transform-style: preserve-3d; }
   .cuerpo .right, .cuerpo .left, .cuerpo .front, .cuerpo .back {
-    height: 400px;
+    height: 300px;
     width: 200px; }
   .cuerpo .bottom, .cuerpo .top {
     height: 200px;
@@ -34,7 +34,7 @@
   .cuerpo .top {
     transform: rotateX(-90deg) translateZ(-100px); }
   .cuerpo .bottom {
-    transform: rotateX(-90deg) translateZ(300px); }
+    transform: rotateX(-90deg) translateZ(200px); }
 
 .cabeza {
   margin: 0 0 0 50px;
@@ -64,6 +64,43 @@
     transform: rotateX(-90deg) translateZ(-50px); }
   .cabeza .bottom {
     transform: rotateX(-90deg) translateZ(50px); }
+
+.pierna1, .pierna2 {
+  width: 100px;
+  height: 200px;
+  position: relative;
+  transition: -webkit-transform 2s linear;
+  transform-style: preserve-3d; }
+  .pierna1 .right, .pierna1 .left, .pierna1 .front, .pierna1 .back, .pierna2 .right, .pierna2 .left, .pierna2 .front, .pierna2 .back {
+    height: 150px;
+    width: 50px; }
+  .pierna1 .bottom, .pierna1 .top, .pierna2 .bottom, .pierna2 .top {
+    height: 50px;
+    width: 50px; }
+  .pierna1 .cara, .pierna2 .cara {
+    display: block;
+    background-color: #0000ff;
+    border: 1px solid red;
+    opacity: .5;
+    position: absolute; }
+  .pierna1 .right, .pierna2 .right {
+    transform: rotateY(90deg) translateZ(25px); }
+  .pierna1 .left, .pierna2 .left {
+    transform: rotateY(-90deg) translateZ(25px); }
+  .pierna1 .front, .pierna2 .front {
+    transform: translateZ(25px); }
+  .pierna1 .back, .pierna2 .back {
+    transform: translateZ(-25px); }
+  .pierna1 .top, .pierna2 .top {
+    transform: rotateX(-90deg) translateZ(-25px); }
+  .pierna1 .bottom, .pierna2 .bottom {
+    transform: rotateX(-90deg) translateZ(125px); }
+
+.pierna1 {
+  transform: translateY(300px) translateX(25px); }
+
+.pierna2 {
+  transform: translateY(100px) translateX(100px); }
 
 .ojos {
   margin: 5px 0; }
